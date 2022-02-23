@@ -1,5 +1,40 @@
-﻿@{
+﻿@model WebApplication1.Models.OrderDTO
+
+
+
+
+@{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 
+
+
+@using (Html.BeginForm("Create", "Order", FormMethod.Post))
+{
+    <div>
+        <label colspan="2" align="center">Customer Details</label>
+    </div>
+            <div class="form-row">
+                <div class="col-md-4">
+                    @Html.LabelFor(m => m.orderItemName, new { @class = "control-label" })
+                    <div>
+                        @Html.TextBoxFor(m => m.orderItemName, new { @class = "form-control" })
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div class="form-row">
+                <div class="col-md-4">
+                    @Html.LabelFor(m => m.orderDesc, new { @class = "control-label" })
+                    <div>
+                        @Html.TextBoxFor(m => m.orderDesc, new { @class = "form-control" })
+                    </div>
+
+                </div>
+            </div>
+
+        
+    }

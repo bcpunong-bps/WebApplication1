@@ -1,5 +1,65 @@
-﻿@{
+﻿@model IEnumerable<WebApplication1.Models.OrderDTO>
+
+
+
+@{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<style>
+    table, th, td, tbody {
+        border: 2px solid black;
+    }
 
+    table {
+        border-spacing: 80px;
+        text-align: center;
+    }
+
+    tbody {
+    }
+
+    th {
+        text-align: center;
+        width: 200px;
+    }
+
+    td {
+        text-align: center;
+        width: 200px;
+    }
+</style>
+
+    @*---------------------- ORDER DETAILS ----------------------------*@
+
+
+<div class="jumbotron">
+    <label> Orders List </label>
+    <div style="margin-left:86%; margin-bottom:30px;">
+        @Html.ActionLink("Create Order", "Create", null, new { @class = "btn btn-success btn-md" })
+
+    </div>
+
+
+    <table style="width:100%" class="table-responsive">
+
+        <tr>
+            @*<th>Customer ID</th>*@
+             <th>Order No.</th>
+            <th>Order Item Name</th>
+            <th>Order Item Desc</th>
+            <th>Action</th>
+        </tr>
+        @*@foreach (var item in Model)
+            {
+            <tr>
+                <td>@item.CustoName</td>
+
+                <td> @Html.ActionLink("Edit", "Edit", new { id = item.CustID }, new { @class = "btn btn-primary btn-sm" })</td>
+            </tr>
+            }*@
+    </table>
+
+
+
+</div>

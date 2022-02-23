@@ -10,7 +10,7 @@ namespace WebApplication1.Models
 
         public int orderId { get; set; }
         public String orderItemName { get; set; }
-        public String orderItemDesc { get; set; }
+        public String orderDesc { get; set; }
 
     }
 }

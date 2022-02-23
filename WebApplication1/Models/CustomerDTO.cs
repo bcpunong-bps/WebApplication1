@@ -7,8 +7,8 @@ namespace WebApplication1.Models
 {
     public class CustomerDTO
     {
-        public int customerId { get; set; }
-        public String customerName { get; set; }
+        public int CustId { get; set; }
+        public String CustName { get; set; }
 
     }
 }
