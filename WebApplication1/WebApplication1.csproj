@@ -135,9 +135,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202202230519418_Customer_services.cs" />
-    <Compile Include="Migrations\202202230519418_Customer_services.designer.cs">
-      <DependentUpon>202202230519418_Customer_services.cs</DependentUpon>
+    <Compile Include="Migrations\202202230803443_Add_Customer_Order.cs" />
+    <Compile Include="Migrations\202202230803443_Add_Customer_Order.designer.cs">
+      <DependentUpon>202202230803443_Add_Customer_Order.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -204,8 +204,8 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202202230519418_Customer_services.resx">
-      <DependentUpon>202202230519418_Customer_services.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202202230803443_Add_Customer_Order.resx">
+      <DependentUpon>202202230803443_Add_Customer_Order.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

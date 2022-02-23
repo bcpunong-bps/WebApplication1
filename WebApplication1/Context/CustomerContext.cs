@@ -12,11 +12,11 @@ namespace WebApplication1.Context
     public class CustomerContext : DbContext
     {
 
-        public CustomerContext() : base ("CustomerContext")
-          {
+        public CustomerContext() : base("CustomerContext")
+        {
 
 
-          }
+        }
         public DbSet<Customer> Customers { get; set; }
         public DbSet<Order> Orders { get; set; }
 
@@ -24,15 +24,18 @@ namespace WebApplication1.Context
         {
             modelBuilder.HasDefaultSchema("dbo");
             modelBuilder.Entity<Customer>().ToTable("Customer");
-            modelBuilder.Entity<Customer>().HasKey(c => c.CustId);
-            modelBuilder.Entity<Customer>().Property(c => c.CustId).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
-            modelBuilder.Entity<Customer>().Property(c => c.CustName).HasMaxLength(64);
+            modelBuilder.Entity<Customer>().HasKey(c => c.Id);
+            modelBuilder.Entity<Customer>().Property(c => c.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+            modelBuilder.Entity<Customer>().Property(c => c.Name).HasMaxLength(64);
+
+            modelBuilder.Entity<Order>().ToTable("Order");
+            modelBuilder.Entity<Order>().HasKey(c => c.Id);
+            modelBuilder.Entity<Order>().Property(c => c.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+            modelBuilder.Entity<Order>().Property(c => c.ItemName).HasMaxLength(64);
+            modelBuilder.Entity<Order>()
+                 .HasRequired(c => c.Customer)
+                 .WithMany()
+                 .HasForeignKey(d => d.CustomerId);
         }
-
-
     }
-                  
-
-
-
 }

@@ -5,10 +5,11 @@ namespace WebApplication1.Models
 {
     public class Order
     {
-
-      
-        public int orderId { get; set; }
-        public String orderItemName { get; set; }
-        public String orderDesc { get; set; }
+        [Key]
+        public int Id { get; set; }
+        public string ItemName { get; set; }
+        public string Description { get; set; }
+        public int CustomerId { get; set; }
+        public Customer Customer { get; set; }
     }
 }
