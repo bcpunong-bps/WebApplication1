@@ -13,6 +13,13 @@ namespace WebApplication1.Controllers
     {
         CustomerContext db = new CustomerContext();
 
+
+
+
+
+
+        //++++++++++++++++INDEX ++++++++++++++++++++++++++++++++//
+
         [HandleError]
         public ActionResult Index()
         {
@@ -56,7 +63,7 @@ namespace WebApplication1.Controllers
 
         }
 
-
+        //+++++++++++++++++++ CREATE +++++++++++++++++++++++//
         [HttpGet]
         public ActionResult Create()
         {
@@ -94,37 +101,6 @@ namespace WebApplication1.Controllers
 
             return RedirectToAction("Index");
 
-            //var customers = db.Customers.ToList();
-            //var customerModel = customers.Select(c => new CustomerDTO
-            //{
-            //    Id = c.Id,
-            //    Name = c.Name
-            //}).ToList();
-            //var info = db.Customers.ToList();
-            //var customers = db.Customers.ToList();
-            //var customerModel = customers.Select(c => new CustomerDTO
-            //{
-            //    Id = c.Id,
-            //    Name = c.Name
-            //}).ToList();
-            //ViewData["Name"] = new SelectList(customerModel, "Id", "Name");
-
-
-            //var list = db.Customers.Contains(customer);
-            //var order = new Order
-            //{
-            //    Id = data.Id,
-            //    OrderName = data.OrderName,
-            //    OrderDescription = data.OrderDescription,
-            //    //data.CustomerId = CustomerId,
-            //    CustomerId = data.CustomerId,
-
-            //};
-
-            ////ViewData["Name"] = new SelectList(customerModel, "Id", "Name");
-            //db.Orders.Add(order);
-            //db.SaveChanges();
-            //return RedirectToAction("Index");
         }
 
 
