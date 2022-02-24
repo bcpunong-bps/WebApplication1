@@ -1,14 +1,7 @@
 ﻿@model WebApplication1.Models.OrderDTO
-
-
-
-
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-
-
 
 @using (Html.BeginForm("Create", "Order", FormMethod.Post))
 {
@@ -16,7 +9,6 @@
         <label colspan="2" align="center">Customer Details</label>
     </div>
     <div class="form-row">
-
 
         <div class="col-md-4">
             @Html.LabelFor(m => m.OrderName, new { @class = "control-label" })
@@ -39,7 +31,7 @@
             <label class="control-label">Customer</label>
             <div>
                 @*@Html.DropDownList("Id", null, "Select Name", new { @class = "form-control" })*@
-                @Html.DropDownList("Name", null, "Select Customer", new { @class = "form-control" })
+                @Html.DropDownList("Id", null, "Select Customer", new { @class = "form-control" })
             </div>
         </div>
     </div>

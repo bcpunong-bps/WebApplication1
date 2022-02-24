@@ -12,7 +12,7 @@ namespace WebApplication1.Models
         public string OrderName { get; set; }
         public string OrderDescription { get; set; }
         public int CustomerId { get; set; }
-        public CustomerDTO CustomerDTO { get; set; }
+        //public CustomerDTO CustomerDTO { get; set; }
     }
 
 }

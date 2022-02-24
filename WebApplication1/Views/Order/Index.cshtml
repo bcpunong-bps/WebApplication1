@@ -53,16 +53,20 @@
             <th>Customer No.</th>
             <th>Action</th>
         </tr>
-        @foreach (var item in Model)
+        @if (Model != null)
         {
-            <tr>
-                <td>@item.Id</td>
-                <td>@item.OrderName</td>
-                <td>@item.OrderDescription</td>
-                <td>@*  *@</td>
-
-                <td> @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-primary btn-sm" })</td>
-            </tr>
+            foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.OrderName</td>
+                    <td>@item.OrderDescription</td>
+                    <td>@item.CustomerId</td>
+                   
+                    <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-primary btn-sm" })</td>
+                </tr>
+            }
         }
     </table>
 

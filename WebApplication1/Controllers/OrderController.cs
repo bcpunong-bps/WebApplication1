@@ -70,7 +70,7 @@ namespace WebApplication1.Controllers
                 Name = c.Name
             }).ToList();
 
-            ViewData["Name"] = new SelectList(customerModel, "Id", "Name");
+            ViewData["Id"] = new SelectList(customerModel, "Id", "Name");
 
             //SelectList CustomerList = new SelectList(customerModel, "CustId", "CustName");
             //ViewData["CustId"] = CustomerList;
@@ -78,8 +78,21 @@ namespace WebApplication1.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(OrderDTO data)
+        public ActionResult Create(OrderDTO orderDTO,CustomerDTO customerDTO)
         {
+            var Order = new Order
+            {
+                Id = orderDTO.Id,
+                OrderName = orderDTO.OrderName,
+                OrderDescription = orderDTO.OrderDescription,
+                CustomerId = customerDTO.Id
+            };
+            
+            db.Orders.Add(Order);
+
+            db.SaveChanges();
+
+            return RedirectToAction("Index");
 
             //var customers = db.Customers.ToList();
             //var customerModel = customers.Select(c => new CustomerDTO
@@ -96,19 +109,22 @@ namespace WebApplication1.Controllers
             //}).ToList();
             //ViewData["Name"] = new SelectList(customerModel, "Id", "Name");
 
-            var order = new Order
-            {
-                Id = data.Id,
-                OrderName = data.OrderName,
-                OrderDescription = data.OrderDescription,
-                //data.CustomerId = CustomerId,
-                CustomerId = data.CustomerId,
-            };
 
-            //ViewData["Name"] = new SelectList(customerModel, "Id", "Name");
-            db.Orders.Add(order);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            //var list = db.Customers.Contains(customer);
+            //var order = new Order
+            //{
+            //    Id = data.Id,
+            //    OrderName = data.OrderName,
+            //    OrderDescription = data.OrderDescription,
+            //    //data.CustomerId = CustomerId,
+            //    CustomerId = data.CustomerId,
+
+            //};
+
+            ////ViewData["Name"] = new SelectList(customerModel, "Id", "Name");
+            //db.Orders.Add(order);
+            //db.SaveChanges();
+            //return RedirectToAction("Index");
         }
 
 
