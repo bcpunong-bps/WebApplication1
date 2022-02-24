@@ -31,7 +31,7 @@
 </style>
 
 <div class="jumbotron">
-   
+
     <h3>@ViewBag.Title</h3>
 
     <div style="margin-left:86%; margin-bottom:30px;">
@@ -48,30 +48,14 @@
 
 
         @foreach (var item in Model)
-            {
+        {
             <tr>
-                <td>@item.CustId</td>
-                <td>@item.CustName</td>
+                <td>@item.Id</td>
+                <td>@item.Name</td>
 
-                <td> @Html.ActionLink("Edit", "Edit", new { id = item.CustId }, new { @class = "btn btn-primary btn-sm" })</td>
+                <td> @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-primary btn-sm" })</td>
             </tr>
-            }
+        }
     </table>
-
-
-
-
-
-
-
-    @*<input type="submit" value="Submit Data" id="btnSubmit" />
-
-
-        <table>
-            <th> Customer ID</th>
-            <th> Customer Name</th>
-
-
-        </table>*@
 
 </div>

@@ -19,18 +19,18 @@
 
 
         <div class="col-md-4">
-            @Html.LabelFor(m => m.orderItemName, new { @class = "control-label" })
+            @Html.LabelFor(m => m.OrderName, new { @class = "control-label" })
             <div>
-                @Html.TextBoxFor(m => m.orderItemName, new { @class = "form-control" })
+                @Html.TextBoxFor(m => m.OrderName, new { @class = "form-control" })
             </div>
 
         </div>
     </div>
     <div class="form-row">
         <div class="col-md-4">
-            @Html.LabelFor(m => m.orderDesc, new { @class = "control-label" })
+            @Html.LabelFor(m => m.OrderDescription, new { @class = "control-label" })
             <div>
-                @Html.TextBoxFor(m => m.orderDesc, new { @class = "form-control" })
+                @Html.TextBoxFor(m => m.OrderDescription, new { @class = "form-control" })
             </div>
         </div>
     </div>
@@ -38,7 +38,8 @@
         <div class="col-md-12">
             <label class="control-label">Customer</label>
             <div>
-                @Html.DropDownList("CustId", null, "Select Name", new { @class = "form-control" })
+                @*@Html.DropDownList("Id", null, "Select Name", new { @class = "form-control" })*@
+                @Html.DropDownList("Name", null, "Select Customer", new { @class = "form-control" })
             </div>
         </div>
     </div>

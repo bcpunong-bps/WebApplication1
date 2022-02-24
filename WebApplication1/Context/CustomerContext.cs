@@ -31,7 +31,7 @@ namespace WebApplication1.Context
             modelBuilder.Entity<Order>().ToTable("Order");
             modelBuilder.Entity<Order>().HasKey(c => c.Id);
             modelBuilder.Entity<Order>().Property(c => c.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
-            modelBuilder.Entity<Order>().Property(c => c.ItemName).HasMaxLength(64);
+            modelBuilder.Entity<Order>().Property(c => c.OrderName).HasMaxLength(64);
             modelBuilder.Entity<Order>()
                  .HasRequired(c => c.Customer)
                  .WithMany()

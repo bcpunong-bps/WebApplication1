@@ -20,8 +20,8 @@ namespace WebApplication1.Controllers
             var list = db.Customers.ToList();
             var model = list.Select(c => new CustomerDTO
             {
-               Id = c.Id,
-               Name = c.Name
+                Id = c.Id,
+                Name = c.Name
 
             }).ToList();
 

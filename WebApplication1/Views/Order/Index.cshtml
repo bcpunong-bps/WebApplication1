@@ -1,4 +1,4 @@
-﻿@model IEnumerable<WebApplication1.Models.Order>
+﻿@model IEnumerable<WebApplication1.Models.OrderDTO>
 
 
 
@@ -40,7 +40,6 @@
     <label> Orders List </label>
     <div style="margin-left:86%; margin-bottom:30px;">
         @Html.ActionLink("Add Order", "Create", null, new { @class = "btn btn-success btn-md" })
-
     </div>
 
 
@@ -58,9 +57,9 @@
         {
             <tr>
                 <td>@item.Id</td>
-                <td>@item.orderItemName</td>
-                <td>@item.orderDesc</td>
-                <td>@item.Customer.Name</td>
+                <td>@item.OrderName</td>
+                <td>@item.OrderDescription</td>
+                <td>@*  *@</td>
 
                 <td> @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-primary btn-sm" })</td>
             </tr>

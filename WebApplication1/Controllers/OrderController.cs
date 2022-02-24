@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using WebApplication1.Context;
 using WebApplication1.Models;
 
+
 namespace WebApplication1.Controllers
 {
     public class OrderController : Controller
@@ -15,14 +16,34 @@ namespace WebApplication1.Controllers
         [HandleError]
         public ActionResult Index()
         {
-            ViewBag.Title = "Order List";
-            var list = db.Orders.Include("Customer").ToList();
-            var model = list.Select(o => new Order
+
+            //OrderDTO orderDTO = new OrderDTO
+            //{
+            //    OrderDesc = orderDTO.OrderDesc,
+            //};
+            //ViewBag.Title = "Order List";
+            //ViewBag.Message = "Welcome";
+            //ViewModels mymodels = new ViewModels();
+
+            // ViewBag.Title = "Order List";
+            //var list = db.Orders.Include("Customer").ToList();
+            // var model = list.Select(o => new OrderDTO
+            // {
+            //     Id = o.Id,
+            //     OrderItemName = o.ItemName,
+            //     OrderDesc = o.Description,
+
+            // }).ToList();
+
+            
+
+            var list = db.Orders.ToList();
+            var model = list.Select(c => new OrderDTO
             {
-                Id = o.Id,
-                ItemName = o.ItemName,
-                Description = o.Description,
-                //Customer = o.Customer
+                Id = c.Id,
+                OrderName = c.OrderName,
+                OrderDescription = c.OrderDescription,
+                CustomerId = c.CustomerId
             }).ToList();
 
             return View(model);
@@ -49,20 +70,42 @@ namespace WebApplication1.Controllers
                 Name = c.Name
             }).ToList();
 
-            SelectList CustomerList = new SelectList(customerModel, "CustId", "CustName");
-            ViewData["CustId"] = CustomerList;
+            ViewData["Name"] = new SelectList(customerModel, "Id", "Name");
+
+            //SelectList CustomerList = new SelectList(customerModel, "CustId", "CustName");
+            //ViewData["CustId"] = CustomerList;
             return View();
         }
 
+        [HttpPost]
         public ActionResult Create(OrderDTO data)
         {
+
+            //var customers = db.Customers.ToList();
+            //var customerModel = customers.Select(c => new CustomerDTO
+            //{
+            //    Id = c.Id,
+            //    Name = c.Name
+            //}).ToList();
+            //var info = db.Customers.ToList();
+            //var customers = db.Customers.ToList();
+            //var customerModel = customers.Select(c => new CustomerDTO
+            //{
+            //    Id = c.Id,
+            //    Name = c.Name
+            //}).ToList();
+            //ViewData["Name"] = new SelectList(customerModel, "Id", "Name");
+
             var order = new Order
             {
                 Id = data.Id,
-                ItemName = data.orderItemName,
-                Description = data.orderDesc,
-                CustomerId = data.CustId,
+                OrderName = data.OrderName,
+                OrderDescription = data.OrderDescription,
+                //data.CustomerId = CustomerId,
+                CustomerId = data.CustomerId,
             };
+
+            //ViewData["Name"] = new SelectList(customerModel, "Id", "Name");
             db.Orders.Add(order);
             db.SaveChanges();
             return RedirectToAction("Index");
